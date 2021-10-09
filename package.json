@@ -1,0 +1,19 @@
+{
+  "name": "polylink",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@i-have-an-issue/polygon.js": "^1.2.2",
+    "dotenv": "^10.0.0",
+    "eris": "^0.15.1",
+    "mongodb": "^3.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
