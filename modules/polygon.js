@@ -5,7 +5,11 @@ let User = new Polygon.User()
 
 let ready = false
 
-User.on("error", (type, err) => console.log(type, err))
+User.on("error", (type, err) => {
+    if([502, "502", 504, "504"].includes(err)) return;
+    console.log(type, err)
+})
+
 User.on("logout", () => ready = false)
 
 polygon.init = () => {
