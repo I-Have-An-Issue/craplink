@@ -2,7 +2,7 @@ const { MongoClient } = require("mongodb");
 let client;
 let database;
 
-exports.init = (mongoUrl = "mongodb://localhost:27017") => {
+exports.init = (mongoUrl = process.env.MONGO_URL) => {
     return new Promise((resolve, reject) => {
         if (client) {
             return reject("The database has already been initilized.");

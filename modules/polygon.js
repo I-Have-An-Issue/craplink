@@ -1,51 +1,29 @@
 const polygon = {}
 
 const Polygon = require("@i-have-an-issue/polygon.js")
-let User = new Polygon.User()
+const client = new Polygon.Client(process.env.POLYGON_USERNAME, process.env.POLYGON_PASSWORD)
 
-let ready = false
-
-User.on("error", (type, err) => {
-    if([502, "502", 504, "504"].includes(err)) return;
-    console.log(type, err)
-})
-
-User.on("logout", () => ready = false)
-
-polygon.init = () => {
-    return new Promise((resolve, reject) => {
-        User.login(process.env.POLYGON_USERNAME, process.env.POLYGON_PASSWORD).catch(e => reject(e))
-        User.on("ready", () => {
-            ready = true
-            resolve()
-        })
-    })
+polygon.init = async () => {
+    setInterval(async () => { await client.ping() }, 1*60*1000)
+    return await client.login()
 }
 
-polygon.logout = () => {
-    return new Promise(async (resolve, reject) => {
-        await User.logout().catch(e => reject(e))
-        resolve()
-    })
+polygon.logout = async () => {
+    return await client.logout()
 }
 
-polygon.userExists = (userid) => {
-    return new Promise(async (resolve, reject) => {
-        resolve(!!await User.people.getInfo(userid).catch(e => reject(e)))
-    })
+polygon.userExists = async (id) => {
+    return !!(await client.getUser(id))
 }
 
-polygon.containsKey = (userid, key) => {
-    return new Promise(async (resolve, reject) => {
-        let profile = await User.people.getProfile(userid).catch(e => reject(e))
-        resolve(profile.blurb.includes(key))
-    })
+polygon.containsKey = async (id, key) => {
+    const user = await client.getUser(id)
+    if (!user) return false
+    return ((await user.getBlurb()).includes(key))
 }
 
-polygon.getProfile = (userid) => {
-    return new Promise(async (resolve, reject) => {
-        resolve(await User.people.getProfile(userid).catch(e => reject(e)))
-    })
+polygon.getProfile = async (id) => {
+    return await client.getUser(id)
 }
 
 module.exports = polygon
