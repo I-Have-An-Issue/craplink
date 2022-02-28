@@ -6,7 +6,7 @@ const database = require("./modules/database")
 
 let client = new Eris(process.env.DISCORD_TOKEN)
 client.commands = new Map()
-client.config = { prefix: process.env.PREFIX, debug: process.env.DEBUG !== "true"}
+client.config = { prefix: process.env.PREFIX, debug: process.env.DEBUG == "true"}
 
 fs.readdir("./events/", (err, files) => {
     if (err) return console.error(err)
