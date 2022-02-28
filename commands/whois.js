@@ -17,9 +17,9 @@ exports.run = async (client, message, args) => {
     message.channel.createMessage(embed({
         authorName: "PolyLink • Whois",
         title: profile.username,
-        url: `https://polygon.pizzaboxer.xyz/user?ID=${user.userid}`,
-        description: profile.blurb,
-        thumbnailUrl: profile.thumbnail,
+        url: `https://polygon.pizzaboxer.xyz/user?id=${user.userid}`,
+        description: await profile.getBlurb(),
+        thumbnailUrl: await profile.thumbnail(),
         fields: [
             {
                 name: "Verification Date",
