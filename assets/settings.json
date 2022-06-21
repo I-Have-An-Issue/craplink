@@ -1,4 +1,3 @@
 [
-    { "name": "verifiedRole", "description": "The ID of the role that verified users will be automatically assigned.", "default": null },
-    { "name": "prefix", "description": "The prefix that this server will use. (Not implemented)", "default": "p!" }
+    { "name": "verifiedRole", "description": "The ID of the role that verified users will be automatically assigned.", "default": null }
 ]
