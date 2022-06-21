@@ -1,3 +1,0 @@
-[
-    { "name": "verifiedRole", "description": "The ID of the role that verified users will be automatically assigned.", "default": null }
-]

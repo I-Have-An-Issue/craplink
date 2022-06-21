@@ -5,7 +5,7 @@ const constants = require("../modules/constants")
 const polygon = require("../modules/polygon")
 
 exports.description = "Link your Discord account to a Polygon account."
-exports.mature = false
+exports.usage = "[polygon_userid*]"
 exports.disabled = false
 exports.owner_only = false
 
@@ -18,8 +18,9 @@ exports.run = async (client, message, args) => {
 		let server = await database.read("settings", { _id: message.guildID })
 		if (server && server.hasOwnProperty("verifiedRole") && !!server.verifiedRole) {
 			message.member
-				.addRole(server.verifiedRole, "User verified successfully and the server has a verified role set.")
+				.addRole(server.verifiedRole, "User verified successfully")
 				.then(() => message.channel.addMessageReaction(message.id, "✅"))
+				.catch((e) => {})
 				.catch(() => {})
 		}
 	} else
@@ -35,8 +36,8 @@ exports.run = async (client, message, args) => {
 						date: new Date().toISOString(),
 					})
 					let server = await database.read("settings", { _id: message.guildID })
-					if (server && server.hasOwnProperty("verifiedRole") && !!server.verifiedRole) message.member.addRole(server.verifiedRole, "User verified successfully and the server has a verified role set.").catch(() => {})
-					return message.channel.addMessageReaction(message.id, "✅")
+					if (server && server.hasOwnProperty("verifiedRole") && !!server.verifiedRole) message.member.addRole(server.verifiedRole, "User verified successfully").catch(() => {})
+					return message.channel.addMessageReaction(message.id, "✅").catch((e) => {})
 				} else return message.channel.createMessage(constants.embed_VerifyNoKey(message))
 			} else {
 				if (!userid || isNaN(Number(userid))) return message.channel.createMessage(constants.embed_VerifyInvalidId(message))
@@ -48,7 +49,7 @@ exports.run = async (client, message, args) => {
 
 				DMChannel.createMessage(constants.verify_MessageTemplate(key))
 					.then(() => {
-						message.channel.addMessageReaction(message.id, "✅")
+						message.channel.addMessageReaction(message.id, "✅").catch((e) => {})
 
 						database.insert("jobs", {
 							_id: authorid,

@@ -3,8 +3,8 @@ const database = require("../modules/database")
 const constants = require("../modules/constants")
 const embed = require("../modules/embed")
 
-exports.description = "Link your Discord account to a Polygon account."
-exports.mature = false
+exports.description = "Lookup a Discord user."
+exports.usage = "[mentioned_user|discord_userid*]"
 exports.disabled = false
 exports.owner_only = false
 
