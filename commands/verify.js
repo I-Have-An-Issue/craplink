@@ -16,7 +16,7 @@ exports.run = async (client, message, args) => {
 	let existingUser = await database.read("users", { _id: authorid })
 	if (existingUser) {
 		let server = await database.read("settings", { _id: message.guildID })
-		if (server && server.hasOwnProperty("verifiedRole") && !!server.verifiedRole) {
+		if (server && server.verifiedRole) {
 			message.member
 				.addRole(server.verifiedRole, "User verified successfully")
 				.then(() => message.channel.addMessageReaction(message.id, "✅"))
@@ -35,7 +35,7 @@ exports.run = async (client, message, args) => {
 						date: new Date().toISOString(),
 					})
 					let server = await database.read("settings", { _id: message.guildID })
-					if (server && server.hasOwnProperty("verifiedRole") && !!server.verifiedRole) message.member.addRole(server.verifiedRole, "User verified successfully").catch(() => {})
+					if (server && server.verifiedRole) message.member.addRole(server.verifiedRole, "User verified successfully").catch((e) => console.log(e))
 					return message.channel.addMessageReaction(message.id, "✅").catch((e) => {})
 				} else return message.channel.createMessage(constants.embed_VerifyNoKey(message))
 			} else {
