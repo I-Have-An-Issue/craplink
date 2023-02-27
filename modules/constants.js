@@ -1,6 +1,6 @@
 const constants = {}
 
-constants.icon = "https://cdn.calones.xyz/cb4f413986b6f1bd.png"
+constants.icon = "https://cdn.calones.xyz/f353b19a05ae7c42.png"
 
 constants.verify_MessageTemplate = (key) => {
 	return `Your verfication key is ||\`${key}\`||. Put this key in your Blurb, and use the verify command again to link the accounts.\n(Don't share this key!)`
