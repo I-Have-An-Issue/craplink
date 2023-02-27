@@ -20,7 +20,7 @@ exports.run = (client, message, args) => {
 					},
 					{
 						name: "How do I link my account?",
-						value: `- Go to your a server and run \`${client.config.prefix}verify [CRAPBLOX Username]\`.\n- Put the key sent to you in Direct Messages in your [Blurb](https://crapblox.cf/Settings/).\n- Run \`${client.config.prefix}verify\` again.`,
+						value: `- Go to a server and run \`${client.config.prefix}verify [CRAPBLOX Username]\`.\n- Put the key sent to you in Direct Messages in your [Blurb](https://crapblox.cf/Settings/).\n- Run \`${client.config.prefix}verify\` again.`,
 						inline: false,
 					},
 					{
