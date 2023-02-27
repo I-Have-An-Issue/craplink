@@ -1,6 +1,6 @@
 const embed = require("../modules/embed")
 
-exports.description = "Learn what is, and how to use PolyLink."
+exports.description = "Learn what is, and how to use CRAPLINK."
 exports.usage = ""
 exports.disabled = false
 exports.owner_only = false
@@ -9,18 +9,18 @@ exports.run = (client, message, args) => {
 	message.channel.createMessage(
 		embed(
 			{
-				authorName: "PolyLink • Info",
-				title: "Click to join the support server!",
-				url: "https://discord.gg/RpXHBnKWNT",
+				authorName: "CRAPLINK • Info",
+				title: "Click to join the CRAPBLOX server!",
+				url: "https://discord.gg/YVxHkKXJ7q",
 				fields: [
 					{
 						name: "What is this bot?",
-						value: 'PolyLink lets you "link" your Discord and Polygon account to verify that you are the Polygon user you say you are!',
+						value: 'CRAPLINK lets you "link" your Discord and CRAPBLOX account to verify that you are the CRAPBLOX user you say you are!',
 						inline: false,
 					},
 					{
 						name: "How do I link my account?",
-						value: `- Go to your server's verification channel and run \`${client.config.prefix}verify [Polygon ID]\`.\n- Put the key sent to you in Direct Messages in your [Blurb](https://polygon.pizzaboxer.xyz/my/account).\n- Run \`${client.config.prefix}verify\` again.`,
+						value: `- Go to your a server and run \`${client.config.prefix}verify [CRAPBLOX Username]\`.\n- Put the key sent to you in Direct Messages in your [Blurb](https://crapblox.cf/Settings/).\n- Run \`${client.config.prefix}verify\` again.`,
 						inline: false,
 					},
 					{

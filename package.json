@@ -1,20 +1,21 @@
 {
-  "name": "polylink",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "engines": {
-    "node": "16.x"
-  },
-  "dependencies": {
-    "@i-have-an-issue/polygon.js": "^2.2.0",
-    "eris": "^0.15.1",
-    "mongodb": "^3.7.1"
-  },
-  "scripts": {
-    "start": "node ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "craplink",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"engines": {
+		"node": "16.x"
+	},
+	"dependencies": {
+		"eris": "^0.15.1",
+		"mongodb": "^3.7.1",
+		"node-fetch": "^2.x"
+	},
+	"scripts": {
+		"start": "node .",
+		"dev": "nodemon . --exec \"bash start.sh\""
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
 }

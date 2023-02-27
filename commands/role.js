@@ -15,6 +15,7 @@ exports.run = async (client, message, args) => {
 		case "set":
 			server = await database.read("settings", { _id: message.guildID })
 			if (!settings.find((setting) => setting.name == "verifiedRole")) return message.channel.createMessage(constants.embed_SettingsUnknownSetting(message))
+
 			await database
 				.write("settings", { _id: message.guildID }, { ["verifiedRole"]: args[1] })
 				.then(() => message.channel.addMessageReaction(message.id, "✅"))
@@ -28,6 +29,7 @@ exports.run = async (client, message, args) => {
 			server = await database.read("settings", { _id: message.guildID })
 			if (!settings.find((setting) => setting.name == "verifiedRole")) return message.channel.createMessage(constants.embed_SettingsUnknownSetting(message))
 			if (!server.hasOwnProperty("verifiedRole") || !server["verifiedRole"]) return message.channel.createMessage(`\`${settings.find((setting) => setting.name == "verifiedRole").default}\``)
+
 			message.channel.createMessage(`\`${server["verifiedRole"]}\``)
 			break
 		default:

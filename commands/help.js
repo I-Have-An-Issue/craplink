@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
 		message.channel.createMessage(
 			embed(
 				{
-					authorName: "PolyLink • Help",
+					authorName: "CRAPLINK • Help",
 					title: "Click to join the support server!",
 					url: "https://discord.gg/RpXHBnKWNT",
 					description: list.join("\n"),
@@ -32,7 +32,7 @@ exports.run = (client, message, args) => {
 		message.channel.createMessage(
 			embed(
 				{
-					authorName: "PolyLink • Help",
+					authorName: "CRAPLINK • Help",
 					title: `${args[0]} ${cmd.usage}`,
 					description: (cmd.owner_only ? "🔒 " : "") + cmd.description,
 				},

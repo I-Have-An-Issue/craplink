@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
 			.createMessage(
 				embed(
 					{
-						authorName: "PolyLink • Eval",
+						authorName: "CRAPLINK • Eval",
 						description: "```\n" + (result || "[No output]") + "\n```",
 					},
 					message
@@ -27,7 +27,7 @@ exports.run = async (client, message, args) => {
 			.createMessage(
 				embed(
 					{
-						authorName: "PolyLink • Eval",
+						authorName: "CRAPLINK • Eval",
 						description: "```\n" + e.stack.split(path.resolve("./")).join("...") + "\n```",
 					},
 					message
