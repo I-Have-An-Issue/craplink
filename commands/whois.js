@@ -19,7 +19,7 @@ exports.run = async (client, message, args) => {
 			{
 				authorName: "CRAPLINK • Whois",
 				title: profile.roblox_username,
-				url: `https://crapblox.cf/User/${user.userid}`,
+				url: `https://crapblox.cf/User/${user.id}`,
 				description: profile.roblox_description,
 				thumbnailUrl: `https://crapblox.cf/Thumbs/Avatars/${profile.id}.png`,
 				fields: [
