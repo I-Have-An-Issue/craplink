@@ -1,11 +1,19 @@
 const Eris = require("eris")
 const fs = require("fs")
+const express = require("express")
+const app = express()
 const log = require("./modules/log")
 const database = require("./modules/database")
 
 let client = new Eris(process.env.DISCORD_TOKEN)
 client.commands = new Map()
 client.config = { prefix: process.env.PREFIX, debug: process.env.DEBUG == "true" }
+
+app.use((request, response, next) => {
+	request.bot = client
+	next()
+})
+app.use("/webhook", require("./routes/webhook.js"))
 
 fs.readdir("./events/", (err, files) => {
 	if (err) return console.error(err)
@@ -34,7 +42,10 @@ database
 	.init()
 	.then(() => {
 		log.success("[Database] Ready")
-		client.connect()
+		app.listen(process.env.PORT || 5173, () => {
+			log.success("[Express] Ready")
+			client.connect()
+		})
 	})
 	.catch((e) => {
 		console.log(e)

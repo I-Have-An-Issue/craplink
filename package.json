@@ -8,6 +8,7 @@
 	},
 	"dependencies": {
 		"eris": "^0.15.1",
+		"express": "^4.18.2",
 		"mongodb": "^3.7.1",
 		"node-fetch": "^2.x"
 	},
